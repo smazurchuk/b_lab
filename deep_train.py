@@ -21,15 +21,15 @@ Gdata = data['gVec']    # Google word Vectors
 L1 = data['L1']     # Super Category labels
 L2 = data['L2']     # Category labels
 
-tbCallBack = callbacks.TensorBoard(log_dir='./Graph', histogram_freq=1, write_graph=True, write_images=True, embeddings_freq=1)
+tbCallBack = callbacks.TensorBoard(log_dir='./Graph', histogram_freq=1, write_graph=True, write_images=True)
 
 # Lets make a small model first
 model1 = Sequential()
 model1.add(Dense(65, input_dim=65, kernel_initializer='normal', activation='relu'))
 model1.add(Dense(200, input_dim=65, kernel_initializer='normal', activation='relu'))
 model1.add(Dense(300, input_dim=200, kernel_initializer='normal'))
-model1.compile(loss='mean_squared_error', optimizer='adam')
-model1.fit(Bdata, Gdata, epochs=50000, batch_size=535,  verbose=1, callbacks=[tbCallBack])
+model1.compile(loss='cosine_proximity', optimizer='adam')
+model1.fit(Bdata, Gdata, epochs=15000, batch_size=535,  verbose=1, callbacks=[tbCallBack])
 # Lets see what the error is
 M1error = np.sqrt(np.sum((Gdata - model1.predict(Bdata))**2,axis=1) / np.sum(Gdata**2, axis=1))
 plt.hist(M1error,15)
@@ -56,8 +56,8 @@ model2.add(Dense(200, input_dim=200, kernel_initializer='normal', activation='re
 model2.add(Dense(200, input_dim=200, kernel_initializer='normal', activation='relu'))
 model2.add(Dense(300, input_dim=200, kernel_initializer='normal', activation='relu'))
 model2.add(Dense(300, kernel_initializer='normal'))
-model2.compile(loss='mean_squared_error', optimizer='adam')
-model2.fit(Bdata, Gdata, epochs=50000, batch_size=535,  verbose=1, callbacks=[tbCallBack])
+model2.compile(loss='cosine_proximity', optimizer='adam')
+model2.fit(Bdata, Gdata, epochs=15000, batch_size=535,  verbose=1, callbacks=[tbCallBack])
 M2error = np.sqrt(np.sum((Gdata - model2.predict(Bdata))**2,axis=1) / np.sum(Gdata**2, axis=1))
 plt.hist(M2error,15)
 plt.title('Deep NN', fontweight='bold', fontsize=16)
@@ -71,8 +71,8 @@ model3.add(Dense(65, input_dim=65, kernel_initializer='normal', activation='relu
 model3.add(Dense(300, input_dim=65, kernel_initializer='normal', activation='relu'))
 model3.add(Dense(500, input_dim=300, kernel_initializer='normal', activation='relu'))
 model3.add(Dense(300, kernel_initializer='normal'))
-model3.compile(loss='mean_squared_error', optimizer='adam')
-model2.fit(Bdata, Gdata, epochs=50000, batch_size=535,  verbose=1, callbacks=[tbCallBack])
+model3.compile(loss='cosine_proximity', optimizer='adam')
+model2.fit(Bdata, Gdata, epochs=15000, batch_size=535,  verbose=1, callbacks=[tbCallBack])
 M3error = np.sqrt(np.sum((Gdata - model3.predict(Bdata))**2,axis=1) / np.sum(Gdata**2, axis=1))
 plt.hist(M3error,15)
 plt.title('Wide NN', fontweight='bold', fontsize=16)
