@@ -12,11 +12,14 @@ This is a repo to try and describe and document a rotation project. Central to r
 </p>
 
 
-While only one hidden layer is illistrated above, I explore several models in the [relating_spaces.ipynb](relating_spaces.ipynb).
+While only one hidden layer is illustrated above, I explore several models in the [relating_spaces.ipynb](relating_spaces.ipynb).
 
-Ultimately, due to the lackluster results, I decided to take a new approach. To this end, I initially performed a t-SNE embedding, which is visualized below
+Ultimately, due to the lackluster results, I decided to take a new approach. To this end, I initially performed a t-SNE embedding, which is visualized at the link below. The link is to an interactive notebook.
 
-<iframe width="900" height="800" frameborder="0" scrolling="no" src="//plot.ly/~famousshooter98/14.embed"></iframe>
+
+[Plotly Link](https://plot.ly/~famousshooter98/16/notes-this-notebook-was-made-just-to-vis/)
+
+For machine learning, I used a space reduced in the same manner, combined with a feed forward neural net.
 
 
 ### Second Project
