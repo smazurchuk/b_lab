@@ -14,4 +14,6 @@ This is a repo to try and describe and document a rotation project. Central to r
 
 While only one hidden layer is illistrated above, I explore several models in the [relating_spaces.ipynb](relating_spaces.ipynb).
 
+Ultimately, due to the lackluster results, I decided to take a new appraoch.
+
 ### Second Project
