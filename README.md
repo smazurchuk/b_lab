@@ -23,3 +23,7 @@ For machine learning, I used a space reduced in the same manner, combined with a
 
 
 ### Second Project
+
+For this project, I would like to take a (hopefully) less restricive approach to the problem of prediciting sentence level neural activity ([Anderson et al](https://academic.oup.com/cercor/article-lookup/doi/10.1093/cercor/bhw240)). The general model of this is laid out below
+
+![CNN model](data/cnn.png)
