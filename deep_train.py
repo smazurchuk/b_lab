@@ -25,10 +25,10 @@ tbCallBack = callbacks.TensorBoard(log_dir='./Graph', histogram_freq=1, write_gr
 
 # Lets make a small model first
 model1 = Sequential()
-model1.add(Dense(65, input_dim=65, kernel_initializer='normal', activation='relu'))
-model1.add(Dense(200, input_dim=65, kernel_initializer='normal', activation='relu'))
+model1.add(Dense(65, input_dim=65, kernel_initializer='normal'))
+model1.add(Dense(200, input_dim=65, kernel_initializer='normal', activation='sigmoid'))
 model1.add(Dense(300, input_dim=200, kernel_initializer='normal'))
-model1.compile(loss='cosine_proximity', optimizer='adam')
+model1.compile(loss='mean_squared_error', optimizer='adam')
 model1.fit(Bdata, Gdata, epochs=15000, batch_size=535,  verbose=1, callbacks=[tbCallBack])
 # Lets see what the error is
 M1error = np.sqrt(np.sum((Gdata - model1.predict(Bdata))**2,axis=1) / np.sum(Gdata**2, axis=1))
@@ -40,7 +40,7 @@ plt.savefig('Small_Model.svg', format='svg')
 
 # Lets make a deeper model
 model2 = Sequential()
-model2.add(Dense(65, input_dim=65, kernel_initializer='normal', activation='relu'))
+model2.add(Dense(65, input_dim=65, kernel_initializer='normal'))
 model2.add(Dense(200, input_dim=65, kernel_initializer='normal', activation='relu'))
 model2.add(Dense(200, input_dim=200, kernel_initializer='normal', activation='relu'))
 model2.add(Dense(200, input_dim=200, kernel_initializer='normal', activation='relu'))
@@ -56,7 +56,7 @@ model2.add(Dense(200, input_dim=200, kernel_initializer='normal', activation='re
 model2.add(Dense(200, input_dim=200, kernel_initializer='normal', activation='relu'))
 model2.add(Dense(300, input_dim=200, kernel_initializer='normal', activation='relu'))
 model2.add(Dense(300, kernel_initializer='normal'))
-model2.compile(loss='cosine_proximity', optimizer='adam')
+model2.compile(loss='mean_squared_error', optimizer='adam')
 model2.fit(Bdata, Gdata, epochs=15000, batch_size=535,  verbose=1, callbacks=[tbCallBack])
 M2error = np.sqrt(np.sum((Gdata - model2.predict(Bdata))**2,axis=1) / np.sum(Gdata**2, axis=1))
 plt.hist(M2error,15)
@@ -67,11 +67,11 @@ plt.savefig('deppNN.svg', format='svg')
 
 # Lets make a wider model
 model3 = Sequential()
-model3.add(Dense(65, input_dim=65, kernel_initializer='normal', activation='relu'))
-model3.add(Dense(300, input_dim=65, kernel_initializer='normal', activation='relu'))
-model3.add(Dense(500, input_dim=300, kernel_initializer='normal', activation='relu'))
+model3.add(Dense(65, input_dim=65, kernel_initializer='normal'))
+model3.add(Dense(500, input_dim=65, kernel_initializer='normal', activation='relu'))
+model3.add(Dense(500, input_dim=500, kernel_initializer='normal', activation='relu'))
 model3.add(Dense(300, kernel_initializer='normal'))
-model3.compile(loss='cosine_proximity', optimizer='adam')
+model3.compile(loss='mean_squared_error', optimizer='adam')
 model2.fit(Bdata, Gdata, epochs=15000, batch_size=535,  verbose=1, callbacks=[tbCallBack])
 M3error = np.sqrt(np.sum((Gdata - model3.predict(Bdata))**2,axis=1) / np.sum(Gdata**2, axis=1))
 plt.hist(M3error,15)

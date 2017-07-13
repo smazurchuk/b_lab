@@ -19,8 +19,10 @@ Ultimately, due to the lackluster results, I decided to take a new approach. To 
 
 [Plotly Link](https://plot.ly/~famousshooter98/16/notes-this-notebook-was-made-just-to-vis/)
 
-For machine learning, I used a space reduced in the same manner, combined with a feed forward neural net.
-
+For machine learning, I used a space reduced in the same manner, combined with a feed forward neural net. This network was trained (with 400,000 epochs) and the results were again lackluster.
+<p align="center">
+ <img src="data/tSNE_model1.png" width="500">
+</p>
 
 ### Second Project
 
