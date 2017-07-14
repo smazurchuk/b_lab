@@ -25,3 +25,22 @@ plt.show()
 
 
 plt.savefig('tSNE_Model.svg', format='svg')
+
+
+###################################################################
+import numpy as np
+import numpy.matlib
+import matplotlib.pyplot as plt
+data = np.load('data/data_w_labels.npz')
+Bdata = data['vec']     # Binder Word Vectors
+Gdata = data['gVec']    # Google word Vectors
+L1 = data['L1']     # Super Category labels
+L2 = data['L2']     # Category labels
+# New Distances, but real
+nnB = np.zeros((534,534))
+nnG = np.zeros((534,534))
+for row in range(0,534):
+    for column in range(0,534):
+        #print( row, ' ' ,column)
+        nnB[row, column] = np.linalg.norm(Bdata[row,:] - Bdata[column,:])
+        nnG[row, column] = np.linalg.norm(Gdata[row,:] - Gdata[column,:])
