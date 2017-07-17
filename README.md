@@ -24,7 +24,17 @@ For machine learning, I used a space reduced in the same manner, combined with a
  <img src="data/tSNE_model1.png" width="500">
 </p>
 
-### Second Project
+### Qualitative Analysis of the Spaces
+
+After the above approaches lead to no insights, I decided to take a more qualitative approach. For a 2-dimensional tSNE embedding,  I wondered  if there was a difference metrics made. It appears they do not, as the general seperation is best seen with default parameters.
+
+![tSNE image](data/2D_tSNE.png)
+
+However, in looking how the general clusters seperate, it was suprising that the clusters do have  similar dispersions regardless of the embedding
+
+![cDist plot](data/cDist.png)
+
+## Second Project
 
 For this project, I would like to take a (hopefully) less restricive approach to the problem of prediciting sentence level neural activity ([Anderson et al](https://academic.oup.com/cercor/article-lookup/doi/10.1093/cercor/bhw240)). The general model of this is laid out below
 
