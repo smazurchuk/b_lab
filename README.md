@@ -27,12 +27,17 @@ For machine learning, I used a space reduced in the same manner, combined with a
 ### Qualitative Analysis of the Spaces
 
 After the above approaches lead to no insights, I decided to take a more qualitative approach. For a 2-dimensional tSNE embedding,  I wondered  if there was a difference metrics made. It appears they do not, as the general seperation is best seen with default parameters.
+<p align="center">
+ <img src="data/2D_tSNE.png" width="700">
+</p>
 
-![tSNE image](data/2D_tSNE.png)
+Click [here](http://i.imgur.com/Pa2IV1z.jpg) for a labeled high resolution of this plot.
 
-However, in looking how the general clusters seperate, it was suprising that the clusters do have  similar dispersions regardless of the embedding
+However, in looking how the general clusters separate, it was surprising that the clusters do have  similar dispersions regardless of the embedding
+<p align="center">
+ <img src="data/cDist.png" width="400">
+</p>
 
-![cDist plot](data/cDist.png)
 
 ## Second Project
 
