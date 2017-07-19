@@ -5,7 +5,7 @@
 import numpy as np
 import matplotlib.pyplot as plt
 
-def labeled_plot(Bdata, Gdata, labels, text, fname):
+def labeled_plot(Bdata, Gdata, labels, text, title, fname):
     # Calculate Centroids
     numL = len(set(labels))
     B_centroids = np.zeros((numL,2))
@@ -36,6 +36,7 @@ def labeled_plot(Bdata, Gdata, labels, text, fname):
     for i in labels:
         plt.annotate(text[int(i)], (G_centroids[int(i),0],G_centroids[int(i),1]))
     plt.title('Google tSNE Reduced', fontweight='bold')
+    plt.suptitle(title)
     figD = plt.gcf()
     plt.show()
     figD.savefig(fname, dpi=600)
