@@ -36,7 +36,7 @@ def labeled_plot(Bdata, Gdata, labels, text, title, fname):
     for i in labels:
         plt.annotate(text[int(i)], (G_centroids[int(i),0],G_centroids[int(i),1]))
     plt.title('Google tSNE Reduced', fontweight='bold')
-    plt.suptitle(title)
+    plt.suptitle(title, fontweight='bold')
     figD = plt.gcf()
     plt.show()
     figD.savefig(fname, dpi=600)
